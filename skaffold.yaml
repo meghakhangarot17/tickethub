@@ -1,0 +1,29 @@
+apiVersion: skaffold/v4beta3
+kind: Config
+manifests:
+  rawYaml:
+    - ./infra/k8s/*
+build:
+  # local:
+  #   push: false
+  googleCloudBuild:
+    projectId: tickethub-dev-399117
+  artifacts:
+    # - image: meghakhangarot17/auth
+    - image: us.gcr.io/tickethub-dev-399117/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: 'src/**/*.ts'
+    # - image: meghakhangarot17/client
+    - image: us.gcr.io/tickethub-dev-399117/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
