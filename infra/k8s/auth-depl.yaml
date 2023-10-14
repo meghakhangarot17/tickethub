@@ -13,22 +13,24 @@ spec:
         app: auth
     spec:
       containers:
-      - name: auth
-        image: us.gcr.io/tickethub-dev-399117/auth
-        # image: meghakhangarot17/auth
-        resources:
-          limits:
-            memory: 512Mi
-            cpu: "1"
-          requests:
-            memory: 256Mi
-            cpu: "0.2"
-        env:
-        - name: JWT_KEY
-          valueFrom: 
-            secretKeyRef:
-              name: jwt-secret
-              key: JWT_KEY
+        - name: auth
+          image: us.gcr.io/tickethub-dev-399117/auth
+          # image: meghakhangarot17/auth
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: "1"
+            requests:
+              memory: 256Mi
+              cpu: "0.2"
+          env:
+          - name: MONGO_URI
+            value: 'mongodb://auth-mongo-srv:27017/auth'
+          - name: JWT_KEY
+            valueFrom: 
+              secretKeyRef:
+                name: jwt-secret
+                key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service
@@ -42,4 +44,12 @@ spec:
     protocol: TCP
     port: 3000
     targetPort: 3000
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: jwt-secret
+  namespace: default
+stringData:
+  JWT_KEY: asdfasdf
 

@@ -17,7 +17,7 @@ build:
       sync:
         manual:
           - dest: .
-            src: 'src/**/*.ts'
+            src: "src/**/*.ts"
     # - image: meghakhangarot17/client
     - image: us.gcr.io/tickethub-dev-399117/client
       context: client
@@ -25,5 +25,44 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: '**/*.js'
+          - src: "**/*.js"
             dest: .
+    # - image: meghakhangarot17/tickets
+    - image: us.gcr.io/tickethub-dev-399117/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "src/**/*.ts"
+    - image: us.gcr.io/tickethub-dev-399117/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "src/**/*.ts"
+    - image: us.gcr.io/tickethub-dev-399117/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "src/**/*.ts"
+    - image: us.gcr.io/tickethub-dev-399117/payments
+      context: payments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: .
+            src: "src/**/*.ts"
+
+
+
+
+
+
