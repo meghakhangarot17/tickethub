@@ -17,21 +17,43 @@ const LandingPage = ({ currentUser , tickets}) => {
   });
 
   return (
-    <div>
-      <h1>Tickets</h1>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ticketList}
-        </tbody>
-      </table>
-    </div>
+    <div class="mt-5 card">
+  <div class="card-header">
+  Tickets
+  </div>
+  <div class="card-body">
+  <table className="table">
+     <thead>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Link</th>
+       </tr>
+     </thead>
+   <tbody>
+     {ticketList}
+    </tbody>
+   </table>
+  </div>
+  </div>
+
+    // <div>
+    //   <h1>Tickets</h1>
+    //   <table className="table">
+    //     <thead>
+    //       <tr>
+    //         <th>Title</th>
+    //         <th>Price</th>
+    //         <th>Link</th>
+    //       </tr>
+    //     </thead>
+    //     <tbody>
+    //       {ticketList}
+    //     </tbody>
+    //   </table>
+    // </div>
+
+    
   );
 };
 

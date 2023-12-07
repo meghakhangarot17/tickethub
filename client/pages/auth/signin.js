@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Router from 'next/router';
 import useRequest from '../../hooks/use-request';
+import { Wrapper } from './wrapper';
 
 export default () => {
   const [email, setEmail] = useState('');
@@ -22,8 +23,8 @@ export default () => {
   };
 
   return (
+    <Wrapper title="Sign In">
     <form onSubmit={onSubmit}>
-      <h1>Sign In</h1>
       <div className="form-group">
         <label>Email Address</label>
         <input
@@ -44,5 +45,6 @@ export default () => {
       {errors}
       <button className="btn btn-primary">Sign In</button>
     </form>
+    </Wrapper>
   );
 };
