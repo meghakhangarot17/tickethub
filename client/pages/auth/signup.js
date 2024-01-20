@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Router from 'next/router';
 import useRequest from '../../hooks/use-request';
+import { Wrapper } from './wrapper';
 
 export default () => {
   const [email, setEmail] = useState('');
@@ -40,8 +41,8 @@ export default () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <h1>Sign Up</h1>
+    <Wrapper title="Sign Up">
+  <form onSubmit={onSubmit}>
       <div className="form-group">
         <label>Email Address</label>
         <input
@@ -60,9 +61,8 @@ export default () => {
         />
       </div>
       {errors}
-      <button className="btn btn-primary">Sign Up</button>
+      <button className="mt-2 btn btn-primary">Sign Up</button>
     </form>
+  </Wrapper>
   );
 };
-
-

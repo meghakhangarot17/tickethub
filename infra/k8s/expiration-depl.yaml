@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: expiration
-          image: us.gcr.io/tickethub-dev-399117/expiration
-          # image: meghakhangarot17/expiration
+          # image: us.gcr.io/tickethub-dev-399117/expiration
+          image: meghakhangarot17/expiration
           resources:
             limits:
               memory: 512Mi

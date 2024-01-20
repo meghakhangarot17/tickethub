@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: client
-        # image: meghakhangarot17/client
-        image: us.gcr.io/tickethub-dev-399117/client
+        image: meghakhangarot17/client
+        # image: us.gcr.io/tickethub-dev-399117/client
         resources:
           limits:
             memory: 512Mi

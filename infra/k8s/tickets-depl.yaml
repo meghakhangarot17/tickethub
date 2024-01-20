@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: tickets
-          image: us.gcr.io/tickethub-dev-399117/tickets
-          # image: meghakhangarot17/tickets
+          # image: us.gcr.io/tickethub-dev-399117/tickets
+          image: meghakhangarot17/tickets
           resources:
             limits:
               memory: 512Mi

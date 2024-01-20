@@ -32,9 +32,12 @@ const NewTicket = () => {
   };
 
   return (
-    <div>
-      <h1> Create a Ticket</h1>
-      <form onSubmit={onSubmit}>
+    <div class="mt-5 card">
+    <div class="card-header">
+      Create a Ticket
+    </div>
+    <div class="card-body">
+    <form onSubmit={onSubmit}>
         <div className="form-group">
           <label>Title</label>
           <input 
@@ -55,6 +58,7 @@ const NewTicket = () => {
         {errors}
         <button className="btn btn-primary">Submit</button>
       </form>
+    </div>
     </div>
   );
 };

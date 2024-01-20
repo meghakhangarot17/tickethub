@@ -33,7 +33,3 @@ app.all('*', async (req, res) => {
 app.use(errorHandler);
 
 export { app };
-
-// app.get('/api/users/currentuser', (req,res) => {
-//     res.send("Hi there!");
-// });

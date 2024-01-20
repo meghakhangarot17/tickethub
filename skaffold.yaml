@@ -4,13 +4,13 @@ manifests:
   rawYaml:
     - ./infra/k8s/*
 build:
-  # local:
-  #   push: false
-  googleCloudBuild:
-    projectId: tickethub-dev-399117
+  local:
+    push: false
+  # googleCloudBuild:
+    # projectId: tickethub-dev-399117
   artifacts:
-    # - image: meghakhangarot17/auth
-    - image: us.gcr.io/tickethub-dev-399117/auth
+    - image: meghakhangarot17/auth
+    # - image: us.gcr.io/tickethub-dev-399117/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -18,8 +18,8 @@ build:
         manual:
           - dest: .
             src: "src/**/*.ts"
-    # - image: meghakhangarot17/client
-    - image: us.gcr.io/tickethub-dev-399117/client
+    - image: meghakhangarot17/client
+    # - image: us.gcr.io/tickethub-dev-399117/client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -27,8 +27,8 @@ build:
         manual:
           - src: "**/*.js"
             dest: .
-    # - image: meghakhangarot17/tickets
-    - image: us.gcr.io/tickethub-dev-399117/tickets
+    - image: meghakhangarot17/tickets
+    # - image: us.gcr.io/tickethub-dev-399117/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
@@ -36,7 +36,8 @@ build:
         manual:
           - dest: .
             src: "src/**/*.ts"
-    - image: us.gcr.io/tickethub-dev-399117/orders
+    - image: meghakhangarot17/orders
+    # - image: us.gcr.io/tickethub-dev-399117/orders
       context: orders
       docker:
         dockerfile: Dockerfile
@@ -44,7 +45,8 @@ build:
         manual:
           - dest: .
             src: "src/**/*.ts"
-    - image: us.gcr.io/tickethub-dev-399117/expiration
+    - image: meghakhangarot17/expiration
+    # - image: us.gcr.io/tickethub-dev-399117/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
@@ -52,7 +54,8 @@ build:
         manual:
           - dest: .
             src: "src/**/*.ts"
-    - image: us.gcr.io/tickethub-dev-399117/payments
+    - image: meghakhangarot17/payments
+    # - image: us.gcr.io/tickethub-dev-399117/payments
       context: payments
       docker:
         dockerfile: Dockerfile

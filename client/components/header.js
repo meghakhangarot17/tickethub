@@ -21,7 +21,7 @@ export default ({ currentUser }) => {
     });
 
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar navbar-light bg-light p-2">
       <Link className="navbar-brand" href="/">
         TicketHub
       </Link>
