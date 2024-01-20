@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: payments
-          image: us.gcr.io/tickethub-dev-399117/payments
-          # image: meghakhangarot17/payments
+          # image: us.gcr.io/tickethub-dev-399117/payments
+          image: meghakhangarot17/payments
           resources:
             limits:
               memory: 512Mi
@@ -24,26 +24,26 @@ spec:
               memory: 256Mi
               cpu: "0.2"
           env:
-          - name: NATS_CLIENT_ID
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.name
-          - name: NATS_URL
-            value: 'http://nats-srv:4222'
-          - name: NATS_CLUSTER_ID
-            value: tickethub
-          - name: MONGO_URI
-            value: 'mongodb://payments-mongo-srv:27017/payments'
-          - name: JWT_KEY
-            valueFrom: 
-              secretKeyRef:
-                name: jwt-secret
-                key: JWT_KEY
-          - name: STRIPE_KEY
-            valueFrom: 
-              secretKeyRef:
-                name: stripe-secret
-                key: STRIPE_KEY
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_URL
+              value: "http://nats-srv:4222"
+            - name: NATS_CLUSTER_ID
+              value: tickethub
+            - name: MONGO_URI
+              value: "mongodb://payments-mongo-srv:27017/payments"
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            - name: STRIPE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: STRIPE_KEY
 ---
 apiVersion: v1
 kind: Service
@@ -53,10 +53,10 @@ spec:
   selector:
     app: payments
   ports:
-  - name: payments
-    protocol: TCP
-    port: 3000
-    targetPort: 3000
+    - name: payments
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
 ---
 apiVersion: v1
 kind: Secret
@@ -65,5 +65,6 @@ metadata:
   namespace: default
 stringData:
   JWT_KEY: abcdef
-  
+  STRIPE_KEY: abcdef
+
 

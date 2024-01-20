@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: auth
-          image: us.gcr.io/tickethub-dev-399117/auth
-          # image: meghakhangarot17/auth
+          # image: us.gcr.io/tickethub-dev-399117/auth
+          image: meghakhangarot17/auth
           resources:
             limits:
               memory: 512Mi
